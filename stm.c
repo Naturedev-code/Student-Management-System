@@ -74,21 +74,24 @@ int main()
                 strcpy(x[i].grade, "F");
             }
     }
-    for (i = 0; i < n; i++)
+    printf("\n===============================================================\n");
+    printf("                    STUDENT RESULT SUMMARY\n");
+    printf("===============================================================\n");
+    printf("| %-3s | %-20s | %-6s | %-7s | %-6s | %-8s | %-7s | %-6s | %-5s |\n",
+           "No.", "Name", "Roll", "Science", "Maths", "Computer",
+           "Total", "Percent", "Grade");
+    printf("|-----|----------------------|--------|---------|--------|----------|---------|--------|-------|\n");
 
+    for (i = 0; i < n; i++)
     {
-        printf("Displaying Record of Student No. %d\n", i + 1);
-        printf("Name of Student: %s %s\n", x[i].fname,x[i].lname);
-        printf("Rollno. of Student: %d\n", x[i].Rollno);
-        printf("\n");
-        printf("\n");
-        printf("Marks of Science: %.2f\n", x[i].science);
-        printf("Marks of Maths: %.2f\n", x[i].maths);
-        printf("Marks of Computer: %.2f\n", x[i].computer);
-        printf("\n");
-        printf("\n");
-        printf("Total Marks is: %.2f\n", x[i].total);
-        printf("Total Percentage is: %.2f\n", x[i].percentage);
-        printf("Grade is: %s\n", x[i].grade);
+        char full_name[101];
+
+        // snprintf safely combines the first and last names without exceeding full_name's size.
+        snprintf(full_name, sizeof(full_name), "%s %s", x[i].fname, x[i].lname);
+        printf("| %-3d | %-20s | %-6d | %7.2f | %6.2f | %8.2f | %7.2f | %6.2f%% | %-5s |\n",
+               i + 1, full_name, x[i].Rollno, x[i].science, x[i].maths,
+               x[i].computer, x[i].total, x[i].percentage, x[i].grade);
     }
+
+    printf("===============================================================\n");
 }
