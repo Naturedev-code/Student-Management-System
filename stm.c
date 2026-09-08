@@ -95,3 +95,11 @@ int main()
 
     printf("===============================================================\n");
 }
+
+/*
+Format examples:
+%3d   // right-aligned integer
+%-3d  // left-aligned integer
+%7.2f // floating-point number, width 7, 2 decimal places
+%-20s // left-aligned string, width 20
+*/
